@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/v1/api")
 public class CustomerController
 {
 
     private CustomerRepository customerRepository;
 
 
-    // Constructor
+    // Constructor Dependency Injection
     public CustomerController(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
@@ -31,6 +32,12 @@ public class CustomerController
     public List<Customer> listCustomers()
     {
         return this.customerRepository.findAll();
+    }
+
+    @GetMapping("/customer/{id}")
+    public Customer viewCustomer(@PathVariable Long id)
+    {
+        return this.customerRepository.findById(id).get();
     }
 
     @PostMapping("/create")

@@ -1,6 +1,7 @@
 package com.xpanxion.restproject.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer
@@ -15,6 +16,10 @@ public class Customer
     @Column(name = "last_name")
     private String lastName;
 
+     // One customer can have many orders
+//    @OneToMany(mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Order> orders;
 
     public Long getId() {
         return id;
@@ -39,6 +44,7 @@ public class Customer
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 
     @Override
     public String toString() {

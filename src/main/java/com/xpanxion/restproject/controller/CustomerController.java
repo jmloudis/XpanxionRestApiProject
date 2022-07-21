@@ -28,7 +28,7 @@ public class CustomerController
     //         @PatchMapping - specific fields
     // Delete  @DeleteMapping
 
-    @GetMapping("/customers")
+    @GetMapping("/customer")
     public List<Customer> listCustomers()
     {
         return this.customerRepository.findAll();
@@ -40,13 +40,13 @@ public class CustomerController
         return this.customerRepository.findById(id).get();
     }
 
-    @PostMapping("/create")
+    @PostMapping("/customer")
     public Customer createCustomer(@RequestBody Customer customer)
     {
         return this.customerRepository.save(customer);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/customer/{id}")
     public Customer updateCustomer(@RequestBody Customer customerInput, @PathVariable(value = "id") Long id)
     {
         Customer customer = this.customerRepository.findById(id).get();
@@ -55,10 +55,17 @@ public class CustomerController
         return this.customerRepository.save(customer);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/customer/{id}")
     public void deleteCustomer(@PathVariable(value = "id") Long id)
     {
         this.customerRepository.deleteById(id);
+    }
+
+    // Custom Queries
+    @GetMapping("/customers/lastname/{lastName}")
+    public List<Customer> getByLastName(@PathVariable String lastName)
+    {
+        return this.customerRepository.findByLastName(lastName);
     }
 
 

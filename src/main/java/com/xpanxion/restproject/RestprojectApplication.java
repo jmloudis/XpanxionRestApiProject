@@ -11,8 +11,6 @@ public class RestprojectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RestprojectApplication.class, args);
 
-
-
 	}
 
 }

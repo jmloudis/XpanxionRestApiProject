@@ -1,8 +1,11 @@
 package com.xpanxion.restproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name = "orders")
 public class Order
 {
     @Id
@@ -14,8 +17,6 @@ public class Order
 
     private String orderDate;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "customer_id")
     @ManyToOne
     @JoinColumn(name = "customers_id")
     private Customer customer;
@@ -44,6 +45,7 @@ public class Order
         this.description = description;
     }
 
+    @JsonIgnore
     public Customer getCustomer() {
         return customer;
     }

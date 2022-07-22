@@ -18,7 +18,7 @@ public class Customer
 
      // One customer can have many orders
 //    @OneToMany(mappedBy = "customer")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
     public Long getId() {
@@ -45,6 +45,13 @@ public class Customer
         this.lastName = lastName;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     @Override
     public String toString() {

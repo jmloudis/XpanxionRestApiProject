@@ -10,7 +10,10 @@ This is a rest API - CRUD project using Spring Framework
 - created a few custom queires to grab CustomerId, FirstName & LastName
 
 #Service
-- IMplemented a Service Interface & ServiceImpl Class to implement the methods in the interface
+- Implemented a Service Interface & ServiceImpl Class to implement the methods in the interface
 
 # Controller
 - Created RESTful API's using CRUD operations
+
+# Testing
+- Used Postman to test the API endpoints

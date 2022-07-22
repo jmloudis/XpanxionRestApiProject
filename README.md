@@ -1,6 +1,10 @@
 # XpanxionRestApiProject
 This is a rest API - CRUD project using Spring Framework
 
+#Running App
+- Change the application.properties to match your credentials if using MySQL
+- Also implemented H2 database for testing purposes, uncomment the lines on the application.properties file to use H2 database. 
+
 # Model
 - Customer Class
 - Order Class 
